@@ -23,7 +23,7 @@
             <div class="content">
                 <div>
                     <div class="speed">
-                        <div class="number">35</div>
+                        <div id="number" class="number">35</div>
                         <div class="unit">km/h</div>
                     </div>
                     <svg
@@ -41,20 +41,51 @@
                     </svg>
                 </div>
                 <div>
-                    <input
-                            value="35"
-                            type="range"
-                            step="5"
-                            min="0"
-                            max="100"
-                            placeholder="progress"
-                    >
+                    <div>
+                        <label for="speed-range">Test speed:</label>
+                    </div>
+                    <div class="range">
+                        <input
+                                id="speed-range"
+                                value="35"
+                                type="range"
+                                step="5"
+                                min="0"
+                                max="100"
+                                placeholder="progress"
+                        >
+                    </div>
                 </div>
             </div>
         </div>
     </main>
     <footer>
-        <h2>Footer here</h2>
+        <h2>Footer menu will be here</h2>
     </footer>
+    <script>
+        const circle = document.querySelector('circle');
+        const radius = circle.r.baseVal.value;
+        const circumference = radius * 2 * Math.PI;
+        const speedNumber = document.getElementById('number');
+        const input = document.querySelector('input');
+
+        circle.style.strokeDasharray = `${circumference} ${circumference}`;
+        circle.style.strokeDashoffset = `${circumference}`;
+
+        function setProgress(percent) {
+            speedNumber.textContent = percent;
+            //multiply to 0.75 to show 3/4 of circle
+            circle.style.strokeDashoffset = circumference - (percent * 0.75) / 100 * circumference;
+        }
+
+        setProgress(input.value);
+
+        input.addEventListener('input', function(e) {
+            if (input.value < 101 && input.value > -1) {
+                setProgress(input.value);
+            }
+        })
+
+    </script>
 </body>
 </html>
