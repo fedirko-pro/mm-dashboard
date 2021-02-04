@@ -13,12 +13,13 @@
     <main>
         <div class="container">
             <div class="content">
-                <h1>Hello World!</h1>
+                <h1>Test speedometer</h1>
                 <p>
-                    Вы используете node <script>document.write(process.versions.node)</script>,
-                    Chrome <script>document.write(process.versions.chrome)</script>,
-                    и Electron <script>document.write(process.versions.electron)</script>.
+                    Node version: <script>document.write(process.versions.node)</script>,
+                    Chrome: <script>document.write(process.versions.chrome)</script>,
+                    Electron: <script>document.write(process.versions.electron)</script>.
                 </p>
+                <p>This app will be used to test API services before deployment to moto hardware</p>
             </div>
             <div class="content">
                 <div>
@@ -42,7 +43,7 @@
                 </div>
                 <div>
                     <div>
-                        <label for="speed-range">Test speed:</label>
+                        <label for="speed-range">Test speedometer by dragging:</label>
                     </div>
                     <div class="range">
                         <input
@@ -76,6 +77,14 @@
             speedNumber.textContent = percent;
             //multiply to 0.75 to show 3/4 of circle
             circle.style.strokeDashoffset = circumference - (percent * 0.75) / 100 * circumference;
+            if (percent > 80) {
+                console.log(circle.stroke);
+                circle.setAttribute('stroke', '#ff0000');
+            } else if (percent > 50) {
+                circle.setAttribute('stroke', '#ff6600');
+            } else {
+                circle.setAttribute('stroke', '#ffcc00');
+            }
         }
 
         setProgress(input.value);

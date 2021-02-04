@@ -5,6 +5,7 @@ function createWindow () {
     const win = new BrowserWindow({
         width: 480,
         height: 800,
+        icon: __dirname + '/img/Icons.icns',
         webPreferences: {
             nodeIntegration: true
         }
@@ -14,6 +15,8 @@ function createWindow () {
     // and load the index.html of the app.
     win.loadFile(path.join(__dirname, 'index.html'));
 }
+
+app.dock.setIcon(__dirname + '/img/marichka-logo-square-tray.png');
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
