@@ -1,0 +1,25 @@
+{
+  "name": "mm-dashboard",
+  "version": "0.1.0",
+  "author": "FEDIRKO.PRO",
+  "description": "Interface for motorcycle screen.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ./src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedirko-pro/mm-dashboard.git"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fedirko-pro/mm-dashboard/issues"
+  },
+  "homepage": "https://github.com/fedirko-pro/mm-dashboard#readme",
+  "devDependencies": {
+    "electron": "^11.2.2"
+  },
+  "private": true
+}
