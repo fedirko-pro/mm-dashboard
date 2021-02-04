@@ -1,25 +1,61 @@
 {
   "name": "mm-dashboard",
+  "productName": "MM-Dashboard",
   "version": "0.1.0",
   "author": "FEDIRKO.PRO",
   "description": "Interface for motorcycle screen.",
+  "homepage": "https://github.com/fedirko-pro/mm-dashboard#readme",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ./src"
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fedirko-pro/mm-dashboard.git"
   },
   "keywords": [],
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/fedirko-pro/mm-dashboard/issues"
   },
-  "homepage": "https://github.com/fedirko-pro/mm-dashboard#readme",
-  "devDependencies": {
-    "electron": "^11.2.2"
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "my_app"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   },
-  "private": true
+  "dependencies": {},
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "electron": "11.2.2"
+  }
 }
