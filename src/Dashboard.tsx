@@ -22,7 +22,7 @@ export default class Dashboard extends Component<unknown, MainState> {
 
   drawSpeedBar() {
     const { speed } = this.state;
-    const circumference = 130 * 2 * Math.PI;
+    const circumference = 160 * 2 * Math.PI;
     // multiply to 0.75 to show 3/4 of circle
     const strokeDasharray = `${circumference} ${circumference}`;
     const strokeDashoffset =
@@ -64,17 +64,17 @@ export default class Dashboard extends Component<unknown, MainState> {
                   </div>
                   <div className="unit">km/h</div>
                 </div>
-                <svg className="progress-ring" width="300" height="300">
+                <svg className="progress-ring" width="400" height="400">
                   <circle
                     className="progress-ring__circle"
                     stroke={stroke}
-                    strokeWidth="20"
+                    strokeWidth="40"
                     fill="transparent"
                     strokeDasharray={strokeDasharray}
                     strokeDashoffset={strokeDashoffset}
-                    r="130"
-                    cx="150"
-                    cy="150"
+                    r="160"
+                    cx="200"
+                    cy="200"
                   />
                 </svg>
               </div>
@@ -87,7 +87,7 @@ export default class Dashboard extends Component<unknown, MainState> {
                     id="speed-range"
                     value={speed}
                     type="range"
-                    step="5"
+                    step="1"
                     min="0"
                     max="100"
                     placeholder="progress"

@@ -20,13 +20,9 @@ to run local build and check application run:
 
 `yarn start`
 
-`yarn build`
+to run build/package process:
 
-to run build process:
-
-for Mac (default) - `yarn package`
-
-for Linux (will create AppImage file) - `yarn package --linux`
+`yarn package`
 
 to copy to target device (when it's available via SSH):
 
