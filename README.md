@@ -1,3 +1,39 @@
+# MM-Dashboard
+
+## Interface for motorcycle screen.
+
+### 480 x 800 px screen
+
+Native resolution is for RPi 5 inch screen (800 x 480 px, rotated clockwise)
+
+---
+
+###You need latest versions of Node.JS and NPM (Yarn?)
+
+---
+
+first install all dependencies:
+
+`yarn`
+
+to run local build and check application run:
+
+`yarn start`
+
+`yarn build`
+
+to run build process:
+
+for Mac (default) - `yarn package`
+
+for Linux (will create AppImage file) - `yarn package --linux`
+
+to copy to target device (when it's available via SSH):
+
+`scp ~/Downloads/VMshared/ElectronReact-2.3.0-armv7l.AppImage pi@192.168.31.111:/home/pi`
+
+---
+
 <img src=".erb/img/erb-banner.png" width="100%" />
 
 <br>

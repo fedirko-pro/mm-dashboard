@@ -1,7 +1,22 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Fast Refresh for rapid application development",
+  "name": "mm-dashboard",
+  "productName": "MM-Dashboard",
+  "version": "0.1.0",
+  "author": {
+    "name": "FEDIRKO.PRO",
+    "email": "sergey.fedirko@gmail.com",
+    "url": "https://fedirko.pro"
+  },
+  "description": "Interface for motorcycle screen.",
+  "homepage": "https://github.com/fedirko-pro/mm-dashboard#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fedirko-pro/mm-dashboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fedirko-pro/mm-dashboard/issues"
+  },
   "scripts": {
     "build": "concurrently \"yarn build:main\" \"yarn build:renderer\"",
     "build:main": "cross-env NODE_ENV=production webpack --config ./.erb/configs/webpack.config.main.prod.babel.js",
@@ -71,9 +86,10 @@
       ]
     },
     "linux": {
-      "target": [
-        "AppImage"
-      ],
+      "target": {
+        "target": "appimage",
+        "arch": ["armv7l"]
+      },
       "category": "Development"
     },
     "directories": {
@@ -90,15 +106,6 @@
       "repo": "electron-react-boilerplate"
     }
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/electron-react-boilerplate/electron-react-boilerplate.git"
-  },
-  "author": {
-    "name": "Electron React Boilerplate Maintainers",
-    "email": "electronreactboilerplate@gmail.com",
-    "url": "https://electron-react-boilerplate.js.org"
-  },
   "contributors": [
     {
       "name": "Amila Welihinda",
@@ -111,10 +118,6 @@
       "url": "https://github.com/jooohhn"
     }
   ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues"
-  },
   "keywords": [
     "electron",
     "boilerplate",
@@ -126,7 +129,6 @@
     "hot",
     "reload"
   ],
-  "homepage": "https://github.com/electron-react-boilerplate/electron-react-boilerplate#readme",
   "jest": {
     "testURL": "http://localhost/",
     "moduleNameMapper": {
