@@ -69,9 +69,9 @@ const createWindow = async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728,
-    icon: getAssetPath('icon.png'),
+    width: 480,
+    height: 800,
+    icon: getAssetPath('/img/marichka-logo-square-tray.png'),
     webPreferences: {
       nodeIntegration: true,
     },
