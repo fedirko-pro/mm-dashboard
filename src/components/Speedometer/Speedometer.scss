@@ -1,0 +1,52 @@
+.speedometer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .speed_box {
+    position: relative;
+    width: 400px;
+    height: 400px;
+  }
+
+  .progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .progress-ring__circle {
+    transition: 0.3s stroke-dashoffset;
+    /*// axis compensation*/
+    transform: rotate(135deg);
+    transform-origin: 50% 50%;
+  }
+
+  .speed {
+    position: absolute;
+    top: 32%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .speed .number {
+    font-size: 120px;
+    font-weight: bold;
+  }
+  .speed .unit {
+    font-size: 32px;
+  }
+  .battery {
+    text-align: center;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    left: 0;
+    font-size: 60px;
+  }
+
+  #speed-range {
+    width: 100%;
+    height: 50px;
+  }
+}

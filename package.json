@@ -63,7 +63,9 @@
           "armv7l"
         ]
       },
-      "category": "Development"
+      "category": "Utility",
+      "maintainer": "FEDIRKO.PRO",
+      "vendor": "FEDIRKO.PRO"
     },
     "directories": {
       "app": "src",
@@ -72,12 +74,7 @@
     },
     "extraResources": [
       "./assets/**"
-    ],
-    "publish": {
-      "provider": "github",
-      "owner": "electron-react-boilerplate",
-      "repo": "electron-react-boilerplate"
-    }
+    ]
   },
   "keywords": [
     "electron",

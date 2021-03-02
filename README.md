@@ -24,23 +24,19 @@ to run build/package process:
 
 `yarn package`
 
+building is via https://www.electron.build/#installation (refer for options etc.)
+
 to copy to target device (when it's available via SSH):
 
 `scp ~/Downloads/VMshared/ElectronReact-2.3.0-armv7l.AppImage pi@192.168.31.111:/home/pi`
 
 ---
 
-<img src=".erb/img/erb-banner.png" width="100%" />
-
-<br>
-
 <p>
   Electron React Boilerplate uses <a href="https://electron.atom.io/">Electron</a>, <a href="https://facebook.github.io/react/">React</a>, <a href="https://github.com/reactjs/react-router">React Router</a>, <a href="https://webpack.github.io/docs/">Webpack</a> and <a href="https://www.npmjs.com/package/react-refresh">React Fast Refresh</a>.
 </p>
 
 <br>
-
-<div align="center">
 
 [![Build Status][github-actions-status]][github-actions-url]
 [![Dependency Status][david-image]][david-url]
@@ -51,8 +47,6 @@ to copy to target device (when it's available via SSH):
 [![OpenCollective](https://opencollective.com/electron-react-boilerplate/sponsors/badge.svg)](#sponsors)
 [![Good first issues open][good-first-issue-image]][good-first-issue-url]
 [![StackOverflow][stackoverflow-img]][stackoverflow-url]
-
-</div>
 
 ## Install
 
