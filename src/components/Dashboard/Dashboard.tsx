@@ -9,69 +9,140 @@ import {
   faHistory,
   faLifeRing,
   faLocationArrow,
-  faMap,
   faMotorcycle,
+  faMusic,
   faTachometerAlt,
   faUser,
   faWifi,
 } from '@fortawesome/free-solid-svg-icons';
 import Speedometer from '../Speedometer/Speedometer';
+import Settings from '../Settings/Settings';
 
 interface MainState {
-  selectedTab: number;
-  strokeDasharray?: string;
-  strokeDashoffset?: number;
-  strokeDashoffsetBack?: number;
+  screen: string;
 }
 
 export default class Dashboard extends Component<unknown, MainState> {
   constructor(props: unknown) {
     super(props);
     this.state = {
-      selectedTab: 8,
+      screen: 'speedometer',
     };
   }
 
+  getScreen = () => {
+    const { screen } = this.state;
+    switch (screen) {
+      case 'speedometer':
+        return <Speedometer />;
+      case 'settings':
+        return <Settings />;
+      default:
+        return <Speedometer />;
+    }
+  };
+
+  /** select active tab * */
+  activate({ target }: { target: any }) {
+    const buttons: Element[] = Array.from(
+      document.getElementsByClassName('menu_btn')
+    );
+    buttons.forEach((button: Element) => {
+      button.classList.remove('active');
+    });
+    const screen = target.getAttribute('data-screen');
+    target.classList.add('active');
+    this.setState({ screen });
+  }
+
   render() {
-    const { selectedTab } = this.state;
     return (
       <div>
-        <div className="hidden">{selectedTab}</div>
-        <header>
-          <div className="menu_btn">
+        <div className="header">
+          <button
+            type="button"
+            className="menu_btn"
+            data-screen="settings"
+            onClick={(e) => this.activate(e)}
+          >
             <FontAwesomeIcon icon={faWifi} size="lg" />
-          </div>
-          <div className="menu_btn">
+          </button>
+          <button
+            type="button"
+            className="menu_btn"
+            data-screen="moto"
+            onClick={(e) => this.activate(e)}
+          >
             <FontAwesomeIcon icon={faMotorcycle} size="lg" />
-          </div>
-          <div className="menu_btn">
-            <FontAwesomeIcon icon={faMap} size="lg" />
-          </div>
-          <div className="menu_btn">
+          </button>
+          <button
+            type="button"
+            className="menu_btn"
+            data-screen="music"
+            onClick={(e) => this.activate(e)}
+          >
+            <FontAwesomeIcon icon={faMusic} size="lg" />
+          </button>
+          <button
+            type="button"
+            className="menu_btn"
+            data-screen="location"
+            onClick={(e) => this.activate(e)}
+          >
             <FontAwesomeIcon icon={faLocationArrow} size="lg" />
-          </div>
-          <div className="menu_btn">
+          </button>
+          <button
+            type="button"
+            className="menu_btn"
+            data-screen="help"
+            onClick={(e) => this.activate(e)}
+          >
             <FontAwesomeIcon icon={faLifeRing} size="lg" />
-          </div>
-        </header>
-        <Speedometer />
-        <footer>
-          <div className="menu_btn">
+          </button>
+        </div>
+        {this.getScreen()}
+        <div className="footer">
+          <button
+            type="button"
+            className="menu_btn"
+            data-screen="user"
+            onClick={(e) => this.activate(e)}
+          >
             <FontAwesomeIcon icon={faUser} size="lg" />
-          </div>
-          <div className="menu_btn">
+          </button>
+          <button
+            type="button"
+            className="menu_btn"
+            data-screen="history"
+            onClick={(e) => this.activate(e)}
+          >
             <FontAwesomeIcon icon={faHistory} size="lg" />
-          </div>
-          <div className="menu_btn active">
+          </button>
+          <button
+            type="button"
+            className="menu_btn active"
+            data-screen="speedometer"
+            onClick={(e) => this.activate(e)}
+          >
             <FontAwesomeIcon icon={faTachometerAlt} size="lg" />
-          </div>
-          <div className="menu_btn">
+          </button>
+          <button
+            type="button"
+            className="menu_btn"
+            data-screen="charging"
+            onClick={(e) => this.activate(e)}
+          >
             <FontAwesomeIcon icon={faChargingStation} size="lg" />
-          </div>
-          <div className="menu_btn">
+          </button>
+          <button
+            type="button"
+            className="menu_btn"
+            data-screen="settings"
+            onClick={(e) => this.activate(e)}
+          >
             <FontAwesomeIcon icon={faCogs} size="lg" />
-          </div>
-        </footer>
+          </button>
+        </div>
       </div>
     );
   }
